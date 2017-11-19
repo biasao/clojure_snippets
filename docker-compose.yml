@@ -1,0 +1,9 @@
+version: '2'
+services:
+
+  clojure_snippets:
+    image: clojure
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    command: bash
