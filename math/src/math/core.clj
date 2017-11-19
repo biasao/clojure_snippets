@@ -1,6 +1,13 @@
 (ns math.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn sum [a,b]
+  (+ a b))
+
+(defn subtract [a,b]
+  (- a b))
+
+(defn mult [a,b]
+  (* a b))
+
+(defn div [a,b]
+  (/ a b))
