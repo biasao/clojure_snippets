@@ -12,13 +12,19 @@
                   :occupation "Programmer"}))
 
 (deftest fgt-tests
-  (is (= (fgt kids 2) '({:first-name "Mateus"
-                        :last-name "Biasao"
-                        :age 3
-                        :occupation "Programmer"}))))
+  (is (= (filter-by-age-gt kids 2) '({:first-name "Mateus"
+                                      :last-name "Biasao"
+                                      :age 3
+                                      :occupation "Programmer"}))))
+
+(deftest fge-tests
+  (is (= (filter-by-age-ge kids 2) '({:first-name "Mateus"
+                                      :last-name "Biasao"
+                                      :age 3
+                                      :occupation "Programmer"}))))
 
 (deftest fb-tests
-  (is (= (fb (fn [v1 v2] (> v1 v2))) kids :age 2) '({:first-name "Mateus"
+  (is (= (filter-by-fn kids (fn [v1 v2] (> v1 v2)) :age 1 ) '({:first-name "Mateus"
                                                     :last-name "Biasao"
                                                     :age 3
                                                     :occupation "Programmer"}))))

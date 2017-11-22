@@ -1,7 +1,10 @@
 (ns filter.core)
 
-(defn fgt [people age]
+(defn filter-by-age-gt [people age]
   (filter #(> (:age %) age) people))
 
-(defn fb [people f k v]
-  (filter #(f (k %) v) people))
+(defn filter-by-age-ge [people age]
+  (filter #(>= (:age %) age) people))
+
+(defn filter-by-fn [people f k v]
+  (filter #(f (get % k) v) people))
