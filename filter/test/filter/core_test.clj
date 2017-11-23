@@ -11,20 +11,28 @@
                   :age 1
                   :occupation "Programmer"}))
 
-(deftest fgt-tests
+(deftest filter-by-age-gt-tests
   (is (= (filter-by-age-gt kids 2) '({:first-name "Mateus"
                                       :last-name "Biasao"
                                       :age 3
                                       :occupation "Programmer"}))))
 
-(deftest fge-tests
+(deftest filter-by-age-ge-tests
   (is (= (filter-by-age-ge kids 2) '({:first-name "Mateus"
                                       :last-name "Biasao"
                                       :age 3
                                       :occupation "Programmer"}))))
 
-(deftest fb-tests
+(deftest filter-by-fn-tests
   (is (= (filter-by-fn kids (fn [v1 v2] (> v1 v2)) :age 1 ) '({:first-name "Mateus"
-                                                    :last-name "Biasao"
-                                                    :age 3
-                                                    :occupation "Programmer"}))))
+                                                                :last-name "Biasao"
+                                                                :age 3
+                                                                :occupation "Programmer"})))
+  (is (= (filter-by-fn kids (fn [v1 v2] (> v1 v2)) :age 0 ) '({:first-name "Mateus"
+                                                                :last-name "Biasao"
+                                                                :age 3
+                                                                :occupation "Programmer"}
+                                                              {:first-name "Miguel"
+                                                                :last-name "Biasao"
+                                                                :age 1
+                                                                :occupation "Programmer"})))                                                      )
