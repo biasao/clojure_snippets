@@ -3,6 +3,9 @@ services:
 
   clojure_snippets:
     image: clojure
+    ports:
+      - 3000:3000
+      - 8080:8080
     volumes:
       - .:/workspace
     working_dir: /workspace
